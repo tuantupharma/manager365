@@ -103,11 +103,12 @@ def callback():
             data=content.encode("utf-8")
         )
 
-    # Upload ảnh local
+    # Upload ảnh local 
+    images = os.getenv("LOCAL_UPLOAD-FOLDER")
     uploads = []
-    if os.path.exists("images"):
-        for filename in os.listdir("images"):
-            path = os.path.join("images", filename)
+    if os.path.exists(images):
+        for filename in os.listdir(images):
+            path = os.path.join(images, filename)
             if os.path.isfile(path):
                 with open(path, "rb") as f:
                     content = f.read()
