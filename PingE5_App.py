@@ -85,9 +85,9 @@ safe_get(f"https://graph.microsoft.com/v1.0/users/{user_email}/calendars", "📅
 
 remote = os.getenv("RCLONE_REMOTE")
 folder = os.getenv("RCLONE_FOLDER")
-
+rclone = os.getenv("RCLONE_PATH")
 print(f"🧹 Xoá toàn bộ nội dung trong thư mục {folder} (giữ nguyên thư mục)...")
-os.system(f"rclone delete {remote}:/{folder}")
+os.system(f"{rclone} delete {remote}:/{folder}")
 
 
 print("📄 Tạo ngẫu nhiên 3-4 file giả trực tiếp trên OneDrive...")
@@ -193,4 +193,4 @@ def export_subfolders_size_in_folder(parent_folder):
         print("❌ Không lấy được danh sách thư mục con:", res.text)
 
 # Ví dụ sử dụng:
-export_subfolders_size_in_folder("jobnull")  # hoặc bất kỳ tên thư mục nào trong root
+export_subfolders_size_in_folder(r"job2024/mela")  # hoặc bất kỳ tên thư mục nào trong root

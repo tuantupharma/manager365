@@ -1,0 +1,2 @@
+python compress_files.py
+pause
