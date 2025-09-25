@@ -23,7 +23,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests
+    - name: Tạo file .env từ secrets
+      run: |
+        echo "CLIENT_ID=${CLIENT_ID}" > .env
+        echo "CLIENT_SECRET=${CLIENT_SECRET}" >> .env
+        echo "TENANT_ID=${TENANT_ID}" >> .env
+        echo "USER_EMAIL=${USER_EMAIL}" >> .env
+        echo "EMAIL_RECIPIENTS=${EMAIL_RECIPIENTS}" >> .env
+        echo "RCLONE_REMOTE=${RCLONE_REMOTE}" >> .env
+        echo "RCLONE_FOLDER=${RCLONE_FOLDER}" >> .env
       env:
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
@@ -32,13 +40,6 @@ jobs:
         EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
         RCLONE_REMOTE: ${{ secrets.RCLONE_REMOTE }}
         RCLONE_FOLDER: ${{ secrets.RCLONE_FOLDER }}
-      run: |
-        # Tạo file .env từ secrets (nếu cần)
-        echo "CLIENT_ID :${{ secrets.CLIENT_ID }}" >> .env
-        echo "CLIENT_SECRET :${{ secrets.CLIENT_SECRET  }}" >> .env
-        echo "TENANT_ID :${{ secrets.TENANT_ID }}" >> .env
-        echo "USER_EMAIL:${{ secrets.USER_EMAIL}}" >> .env
-        echo "EMAIL_RECIPIENTS:${{ secrets.EMAIL_RECIPIENTS }}" >> .env
-        echo "RCLONE_REMOTE:${{ secrets.RCLONE_REMOTE }}" >> .env
-        echo "RCLONE_FOLDER:${{ secrets.RCLONE_FOLDER }}" >> .env
-        python PingE5_App.py
+    - name: Run PingE5_App.py
+      run: python PingE5_App.py
+
