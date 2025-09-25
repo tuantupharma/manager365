@@ -25,4 +25,4 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest
+        PingE5_App.py
