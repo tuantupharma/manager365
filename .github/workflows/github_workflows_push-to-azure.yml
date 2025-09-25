@@ -1,0 +1,27 @@
+name: Mirror to Azure DevOps
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Git config
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+
+      - name: Mirror to Azure DevOps
+        env:
+          AZURE_REPO_URL: ${{ secrets.AZURE_REPO_URL }}
+          AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
+          AZURE_PAT: ${{ secrets.AZURE_PAT }}
+        run: |
+          git remote add azure "https://${AZURE_USERNAME}:${AZURE_PAT}@${AZURE_REPO_URL#https://}"
+          git push azure HEAD:main --force
