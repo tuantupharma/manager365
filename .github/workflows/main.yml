@@ -41,4 +41,4 @@ jobs:
         echo "EMAIL_RECIPIENTS:${{ secrets.EMAIL_RECIPIENTS }}" >> .env
         echo "RCLONE_REMOTE:${{ secrets.RCLONE_REMOTE }}" >> .env
         echo "RCLONE_FOLDER:${{ secrets.RCLONE_FOLDER }}" >> .env
-        PingE5_App.py
+        python PingE5_App.py
