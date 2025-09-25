@@ -24,5 +24,21 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run tests
+      env:
+        CLIENT_ID :${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET :${{ secrets.CLIENT_SECRET  }}
+        TENANT_ID :${{ secrets.TENANT_ID }}
+        USER_EMAIL:${{ secrets.USER_EMAIL}}
+        EMAIL_RECIPIENTS:${{ secrets.EMAIL_RECIPIENTS }}
+        RCLONE_REMOTE:${{ secrets.RCLONE_REMOTE }}
+        RCLONE_FOLDER:${{ secrets.RCLONE_FOLDER }}
       run: |
+        # Tạo file .env từ secrets (nếu cần)
+        echo "CLIENT_ID :${{ secrets.CLIENT_ID }}" >> .env
+        echo "CLIENT_SECRET :${{ secrets.CLIENT_SECRET  }}" >> .env
+        echo "TENANT_ID :${{ secrets.TENANT_ID }}" >> .env
+        echo "USER_EMAIL:${{ secrets.USER_EMAIL}}" >> .env
+        echo "EMAIL_RECIPIENTS:${{ secrets.EMAIL_RECIPIENTS }}" >> .env
+        echo "RCLONE_REMOTE:${{ secrets.RCLONE_REMOTE }}" >> .env
+        echo "RCLONE_FOLDER:${{ secrets.RCLONE_FOLDER }}" >> .env
         PingE5_App.py
