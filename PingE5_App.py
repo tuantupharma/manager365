@@ -102,7 +102,8 @@ for i in range(random.randint(3, 4)):
 print("🖼️ Upload ảnh từ local thư mục D:\\xxxxx lên thumuccuaban...")
 #os.system(r'rclone copy "Thu muc may ban" rclonecuaban:thucmuctrenonedriver --transfers=4 --checkers=8 --fast-list')
 thumuc_anh = os.getenv("LOCAL_UPLOAD-FOLDER")
-os.system(f"{rclone} copy {thumuc_anh} {remote}:/{folder} --transfers=4 --checkers=8 --fast-list")
+if os.path.exists(rclone):
+    os.system(f"{rclone} copy {thumuc_anh} {remote}:/{folder} --transfers=4 --checkers=8 --fast-list")
 #os.system(r'I:\rclone-v1.65.1-windows-amd64\autosave.bat') 
 
 #more function
@@ -195,4 +196,4 @@ def export_subfolders_size_in_folder(parent_folder):
         print("❌ Không lấy được danh sách thư mục con:", res.text)
 
 # Ví dụ sử dụng:
-export_subfolders_size_in_folder(r"job2024")  # hoặc bất kỳ tên thư mục nào trong root
+export_subfolders_size_in_folder(folder)  # hoặc bất kỳ tên thư mục nào trong root
