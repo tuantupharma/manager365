@@ -23,5 +23,6 @@ jobs:
           AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
           AZURE_PAT: ${{ secrets.AZURE_PAT }}
         run: |
-          git remote add azure "https://${AZURE_USERNAME}:${AZURE_PAT}@${AZURE_REPO_URL}"
+          AZURE_REPO_URL_WITHOUT_HTTPS="${AZURE_REPO_URL#https://}"
+          git remote add azure "https://${AZURE_USERNAME}:${AZURE_PAT}@${AZURE_REPO_URL_WITHOUT_HTTPS}"
           git push azure HEAD:main --force
