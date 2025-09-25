@@ -25,13 +25,13 @@ jobs:
 
     - name: Run tests
       env:
-        CLIENT_ID :${{ secrets.CLIENT_ID }}
-        CLIENT_SECRET :${{ secrets.CLIENT_SECRET  }}
-        TENANT_ID :${{ secrets.TENANT_ID }}
-        USER_EMAIL:${{ secrets.USER_EMAIL}}
-        EMAIL_RECIPIENTS:${{ secrets.EMAIL_RECIPIENTS }}
-        RCLONE_REMOTE:${{ secrets.RCLONE_REMOTE }}
-        RCLONE_FOLDER:${{ secrets.RCLONE_FOLDER }}
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        TENANT_ID: ${{ secrets.TENANT_ID }}
+        USER_EMAIL: ${{ secrets.USER_EMAIL }}
+        EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
+        RCLONE_REMOTE: ${{ secrets.RCLONE_REMOTE }}
+        RCLONE_FOLDER: ${{ secrets.RCLONE_FOLDER }}
       run: |
         # Tạo file .env từ secrets (nếu cần)
         echo "CLIENT_ID :${{ secrets.CLIENT_ID }}" >> .env
