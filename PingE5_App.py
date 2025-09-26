@@ -102,11 +102,13 @@ for i in range(random.randint(3, 4)):
 print("🖼️ Upload ảnh từ local thư mục D:\\xxxxx lên thumuccuaban...")
 #os.system(r'rclone copy "Thu muc may ban" rclonecuaban:thucmuctrenonedriver --transfers=4 --checkers=8 --fast-list')
 thumuc_anh = os.getenv("LOCAL_UPLOAD-FOLDER")
-if not thumuc_anh:
-    raise ValueError("thumuc_anh environment variable is missing or empty")
-if not rclone:
-    raise ValueError("RCLONE_REMOTE environment variable is missing or empty")
-if os.path.exists(rclone):
+isgitaction = os.environ.get('REMOTE_GIT')
+
+if not isgitaction:
+    if not thumuc_anh:
+        raise ValueError("thumuc_anh environment variable is missing or empty")
+    if not rclone:
+        raise ValueError("RCLONE_REMOTE environment variable is missing or empty")
     os.system(f"{rclone} copy {thumuc_anh} {remote}:/{folder} --transfers=4 --checkers=8 --fast-list")
 #os.system(r'I:\rclone-v1.65.1-windows-amd64\autosave.bat') 
 
