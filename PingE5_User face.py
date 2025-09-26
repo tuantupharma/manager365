@@ -78,7 +78,7 @@ def callback():
             "subject": "Mail khen thưởng nội bộ và ngoài hệ thống",
             "body": {
                 "contentType": "Text",
-                "content": "Ping mail nội bộ giữ tài khoản sống"
+                "content": "Ping mail nội bộ giữ tài khoản sống gui"
             },
             "toRecipients": [{"emailAddress": {"address": email}} for email in recipients]
         }
@@ -125,8 +125,8 @@ def callback():
     calendar_resp = requests.post("https://graph.microsoft.com/v1.0/me/events", headers=headers, json=calendar_payload)
 
     # Gửi bài Teams (nếu có)
-    team_id = ""      # ← điền ID nhóm nếu có
-    channel_id = ""   # ← điền ID kênh nếu có
+    team_id = os.getenv("TEAM_ID")      # ← điền ID nhóm nếu có
+    channel_id = os.getenv("CHANNEL_ID")  # ← điền ID kênh nếu có
     teams_status = "⛔ Bỏ qua vì chưa có team_id"
 
     if team_id and channel_id:
