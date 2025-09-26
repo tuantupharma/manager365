@@ -102,8 +102,8 @@ for i in range(random.randint(3, 4)):
 print("🖼️ Upload ảnh từ local thư mục D:\\xxxxx lên thumuccuaban...")
 #os.system(r'rclone copy "Thu muc may ban" rclonecuaban:thucmuctrenonedriver --transfers=4 --checkers=8 --fast-list')
 thumuc_anh = os.getenv("LOCAL_UPLOAD-FOLDER")
-isgitaction = os.environ.get('REMOTE_GIT')
-
+isgitaction = os.environ.get('REMOTE_GIT',1)
+print(f"dang hoạt động ở chế độ : {isgitaction} " )
 if not isgitaction:
     if not thumuc_anh:
         raise ValueError("thumuc_anh environment variable is missing or empty")

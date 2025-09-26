@@ -32,6 +32,7 @@ jobs:
         echo "EMAIL_RECIPIENTS=${EMAIL_RECIPIENTS}" >> .env
         echo "RCLONE_REMOTE=${RCLONE_REMOTE}" >> .env
         echo "RCLONE_FOLDER=${RCLONE_FOLDER}" >> .env
+        echo "REMOTE_GIT=${REMOTE_GIT}" >> .env
       env:
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
@@ -40,6 +41,7 @@ jobs:
         EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
         RCLONE_REMOTE: ${{ secrets.RCLONE_REMOTE }}
         RCLONE_FOLDER: ${{ secrets.RCLONE_FOLDER }}
+        REMOTE_GIT: 1
     - name: Run PingE5_App.py
       run: python PingE5_App.py
 
