@@ -12,7 +12,7 @@
 ## 🛠️ Công nghệ sử dụng
 
 - **Ngôn ngữ chính:** Python
-- **Batchfile:** Hỗ trợ các script tự động hoá trên Windows
+- **Batchfile:** Hỗ trợ các script tự động hoá trên Windows 365
 - **AI model được sử dụng** copilot , gemini, ollama
 
 ## 📦 Cài đặt
