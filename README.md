@@ -42,6 +42,9 @@ Rất hoan nghênh các ý kiến đóng góp, tính năng mới hoặc báo cá
 
 Dự án này sử dụng giấy phép [MIT](LICENSE).
 
+## **Counter**
+As Github will disable inactive projects' action, we could add count here to activate it.
+- 1
 ---
 
 **Made with ❤️ by [tuantupharma](https://github.com/tuantupharma)**
