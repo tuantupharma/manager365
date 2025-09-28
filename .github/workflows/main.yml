@@ -45,5 +45,5 @@ jobs:
     - name: Run PingE5_App.py
       run: python PingE5_App.py
     - name: run GUI.py
-      run: timeout 300 python "PingE5_User face.py"
+    #  run: timeout 300 python "PingE5_User face.py"
 

