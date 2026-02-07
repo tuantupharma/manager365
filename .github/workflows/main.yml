@@ -3,7 +3,7 @@ name: Python Tests (Scheduled Every 4 Hours)
 on:
   schedule:
     # Chạy mỗi 4 giờ một lần (UTC)
-    - cron: '0 */4 * * *'
+    - cron: '0 2  * * *'
   workflow_dispatch: # Cho phép chạy thủ công khi cần
 
 jobs:
