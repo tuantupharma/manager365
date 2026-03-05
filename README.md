@@ -1,50 +1,59 @@
 # Manager365
 
-**Manager365** là một dự án quản lý được xây dựng chủ yếu bằng Python (99.7%) với một chút Batchfile (0.3%). Dự án này hướng tới việc tối ưu hóa các tác vụ quản lý, hỗ trợ tự động hóa và nâng cao hiệu quả làm việc.
+**Manager365** là một công cụ quản lý tự động hóa dành cho môi trường Windows 365. Ứng dụng viết chủ yếu bằng Python (99.7%) và một số script batch, với mục tiêu giúp tối ưu hoá quy trình làm việc, sao lưu và giám sát.
 
-## 🚀 Tính năng nổi bật
+## ✅ Tính năng chính
 
-- Quản lý dữ liệu hiệu quả
-- Tích hợp tự động hóa các quy trình thủ công
-- Giao diện thân thiện, dễ sử dụng (nếu có)
-- Hỗ trợ mở rộng và tuỳ chỉnh linh hoạt
+- Tự động sao lưu và nén thư mục theo cấu hình
+- Kiểm tra quy trình xử lý, dịch vụ hoặc ứng dụng chạy
+- Kết nối và tương tác với Microsoft 365 qua Graph API (ví dụ: gửi thông báo, tạo lịch)
+- Có thể mở rộng bằng các script Python hoặc batch tùy chỉnh
 
-## 🛠️ Công nghệ sử dụng
+## 🛠️ Công nghệ và thành phần
 
-- **Ngôn ngữ chính:** Python, batch
-- **Batchfile:** Hỗ trợ các script tự động hoá trên Windows 365
-- **AI model được sử dụng** copilot , gemini, ollama
+- **Python 3.x** làm ngôn ngữ chính
+- **Batchfile** để tích hợp với hệ điều hành Windows
+- **Flask** cho phần demo `testing/graph.py` (Graph API OAuth)
+- **dotenv** dùng để tải biến môi trường từ `.env`
 
-## 📦 Cài đặt
+## 🚀 Bắt đầu nhanh
 
-1. Clone repo:
+1. **Sao chép repository**
     ```bash
     git clone https://github.com/tuantupharma/manager365.git
+    cd manager365
     ```
-2. Cài đặt các thư viện phụ thuộc:
+2. **Thiết lập môi trường Python**
     ```bash
+    python -m venv venv
+    venv\Scripts\activate  # trên PowerShell
     pip install -r requirements.txt
     ```
+3. **Cấu hình**
+    - chỉnh `config.json` để chỉ định `folder_path` cần sao lưu.
+    - thêm biến môi trường nếu cần (ví dụ khi dùng `testing/graph.py`).
 
-## ⚡ Sử dụng
+4. **Chạy chương trình chính**
+    ```bash
+    python PingE5_App.py  # hoặc file entry point bạn muốn
+    ```
 
-Chạy chương trình chính:
-```bash
-python main.py
-```
-> Lưu ý: Thay đổi tên file chạy nếu entry point khác `main.py`.
+> ❗ Tùy theo mục đích, có thể dùng các batchfile `run.bat`, `runcompress.bat`, `rungui.bat`.
 
-## 📄 Đóng góp
+## 📁 File cấu hình
 
-Rất hoan nghênh các ý kiến đóng góp, tính năng mới hoặc báo cáo lỗi! Hãy mở issue hoặc pull request để cùng phát triển dự án.
+- `config.json` – chứa đường dẫn thư mục sao lưu
+- `.env` (tùy chọn) – chứa biến môi trường cho API/Microsoft 365
+
+## 🤝 Đóng góp
+
+Mọi đóng góp đều rất được hoan nghênh. Mở issue hoặc pull request để thêm tính năng, sửa lỗi hoặc nâng cao tài liệu.
 
 ## 📜 Giấy phép
 
-Dự án này sử dụng giấy phép [MIT](LICENSE).
+Dự án được phát hành dưới giấy phép **MIT**. Xem [LICENSE](LICENSE) để biết chi tiết.
 
-## **Counter**
-As Github will disable inactive projects' action, we could add count here to activate it.
-- 1
 ---
 
-**Made with ❤️ by [tuantupharma](https://github.com/tuantupharma)**
+*Made with ❤️ by [tuantupharma](https://github.com/tuantupharma)*
+
